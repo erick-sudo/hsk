@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  postgres_db:
+    build: api/database/postgres
+    container_name: housekeeping_db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: user_keeper
+      POSTGRES_PASSWORD: password_keeper
+      POSTGRES_DB: db_keeper
+    networks:
+      - house_keeping_network
+      
+  housekeeper_api:
+    build: api
+    container_name: housekeeping_api
+    ports:
+      - "8000:8000"
+    environment:
+      FRONT_END_URL: http://localhost
+      DB_NAME: db_keeper
+      DB_USER: user_keeper
+      DB_PASSWORD: password_keeper
+      DB_HOST: postgres_db
+      DB_PORT: 5432
+    depends_on:
+      - postgres_db
+    networks:
+      - house_keeping_network
+
+  housekeeper_web:
+    build: web
+    container_name: housekeeping_web
+    ports:
+      - "80:80"
+    networks:
+      - house_keeping_network
+
+networks:
+  house_keeping_network: {}

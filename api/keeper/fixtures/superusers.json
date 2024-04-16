@@ -1,0 +1,22 @@
+[
+{
+    "model": "main.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$720000$6B3q02pJby1AYbQPrTnHV0$hr5jVbsp8+QAoKDnBUUarNQHPNuz8nYMeeiW7pyf2iU=",
+        "email": "admin@example.com",
+        "first_name": "Admin",
+        "last_name": "Admin",
+        "phone_number": "555-666-574",
+        "is_active": true,
+        "is_verified": true,
+        "is_staff": true,
+        "is_superuser": true,
+        "date_joined": "2024-04-16T08:42:31.896Z",
+        "last_login": "2024-04-16T08:42:31.915Z",
+        "auth_provider": "email",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
